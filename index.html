@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CACERA — Handcrafted Fine Chocolate</title>
+  <meta name="description" content="CACERA crafts single-origin fine chocolate by hand in small batches, from ethically sourced cacao. Unwrap the extraordinary.">
+  <meta name="theme-color" content="#120b07">
+  <meta property="og:title" content="CACERA — Handcrafted Fine Chocolate">
+  <meta property="og:description" content="Single-origin chocolate, handcrafted in small batches from ethically sourced cacao.">
+  <meta property="og:image" content="assets/images/cacera-bar-wrapped.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23120b07'/%3E%3Ctext x='32' y='44' font-family='serif' font-size='36' text-anchor='middle' fill='%23d9b566'%3EC%3C/text%3E%3C/svg%3E">
+
+  <!-- Apply saved / preferred theme before first paint -->
+  <script>
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('cacera-theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap">
+
+  <link rel="preload" as="image" href="assets/hero-hd/keyframe-first.webp">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ========== Loader ========== -->
+  <div class="loader" role="status" aria-live="polite" aria-label="Loading CACERA">
+    <p class="loader__mark">CACERA</p>
+    <div class="loader__bar" aria-hidden="true"><span class="loader__fill"></span></div>
+    <p class="loader__count"><span data-loader-count>0</span>%</p>
+  </div>
+
+  <!-- ========== Header ========== -->
+  <header class="site-header on-stage" data-header>
+    <nav class="site-nav container" aria-label="Primary">
+      <a class="wordmark" href="#hero" aria-label="CACERA — back to top">CACERA</a>
+
+      <ul class="site-nav__links" id="site-menu" data-menu>
+        <li><a href="#origin">Origin</a></li>
+        <li><a href="#features">Signature</a></li>
+        <li><a href="#craft">Craft</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#showcase">The Bar</a></li>
+        <li><a class="site-nav__cta" href="#reserve">Reserve</a></li>
+      </ul>
+
+      <div class="site-nav__actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+        </button>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu">
+          <span class="visually-hidden">Menu</span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+  </header>
+
+  <!-- Section pager (I–VII) -->
+  <nav class="pager" aria-label="Sections">
+    <ol>
+      <li><a href="#hero" data-pager="hero"><span class="visually-hidden">Section </span>I<span class="visually-hidden"> — Welcome</span></a></li>
+      <li><a href="#origin" data-pager="origin"><span class="visually-hidden">Section </span>II<span class="visually-hidden"> — Origin</span></a></li>
+      <li><a href="#features" data-pager="features"><span class="visually-hidden">Section </span>III<span class="visually-hidden"> — Signature</span></a></li>
+      <li><a href="#craft" data-pager="craft"><span class="visually-hidden">Section </span>IV<span class="visually-hidden"> — Craft</span></a></li>
+      <li><a href="#collection" data-pager="collection"><span class="visually-hidden">Section </span>V<span class="visually-hidden"> — Collection</span></a></li>
+      <li><a href="#showcase" data-pager="showcase"><span class="visually-hidden">Section </span>VI<span class="visually-hidden"> — The Bar</span></a></li>
+      <li><a href="#reserve" data-pager="reserve"><span class="visually-hidden">Section </span>VII<span class="visually-hidden"> — Reserve</span></a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+
+    <!-- ========== I. Hero ========== -->
+    <section id="hero" class="hero stage" aria-labelledby="hero-title">
+      <div class="hero__sticky">
+        <img class="hero__poster" src="assets/images/cacera-bar-wrapped.webp" width="1024" height="1536"
+             alt="A CACERA dark chocolate bar standing in crumpled gold foil, lit warmly against a dark background">
+        <canvas class="hero__canvas" aria-hidden="true" data-hero-canvas></canvas>
+        <div class="hero__veil" aria-hidden="true"></div>
+
+        <div class="hero__beat hero__beat--one" data-beat="1">
+          <p class="eyebrow">Maison de Chocolat · Handcrafted</p>
+          <h1 id="hero-title" class="hero__title" aria-label="CACERA">
+            <span aria-hidden="true" data-split>CACERA</span>
+          </h1>
+          <p class="hero__tagline"><em>Unwrap the extraordinary.</em></p>
+        </div>
+
+        <div class="hero__beat hero__beat--two" data-beat="2">
+          <p class="hero__statement hero__statement--left">Crafted slowly.</p>
+          <p class="hero__statement hero__statement--right"><em>Savoured</em> slowly.</p>
+          <p class="hero__note">Seventy-two hours of stone grinding. A single origin. One unhurried promise in every square.</p>
+        </div>
+
+        <div class="hero__beat hero__beat--three" data-beat="3">
+          <p class="eyebrow">Single-Origin · 72% Cacao</p>
+          <p class="hero__finale">Pure <em>Indulgence</em></p>
+          <a class="button button--ghost" href="#origin">Discover the Origin</a>
+        </div>
+
+        <div class="hero__cue" aria-hidden="true">
+          <span class="hero__cue-label">Scroll</span>
+          <span class="hero__cue-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== II. Origin ========== -->
+    <section id="origin" class="section origin" aria-labelledby="origin-title">
+      <div class="container origin__grid">
+        <figure class="origin__media" data-reveal>
+          <div class="origin__frame">
+            <img data-parallax src="assets/images/origin-pods.webp" width="2400" height="1600" loading="lazy"
+                 alt="Ripe crimson cacao pods hanging from a branch among green leaves">
+          </div>
+          <figcaption>Trinitario cacao, ripening in the shade of the rainforest canopy.</figcaption>
+        </figure>
+
+        <div class="origin__copy">
+          <p class="eyebrow" data-reveal>II · The Origin</p>
+          <h2 id="origin-title" class="display" data-reveal>From the heart of the <em>cacao tree</em></h2>
+          <p class="lead" data-reveal>Every CACERA bar begins as a single pod, hand-cut from a tree that has been tended by the same families for generations.</p>
+          <p data-reveal>We work with fewer than a dozen smallholder farms in the Sambirano Valley, where volcanic soil and river mist give the beans their bright red-fruit character. We buy only what those farms can grow well, and we pay far above the market to keep it that way.</p>
+
+          <dl class="origin__facts" data-reveal>
+            <div><dt>Varietal</dt><dd>Trinitario</dd></div>
+            <div><dt>Harvest</dt><dd>By hand, twice a year</dd></div>
+            <div><dt>Terroir</dt><dd>Volcanic river valley</dd></div>
+          </dl>
+
+          <figure class="origin__inset" data-reveal>
+            <img src="assets/images/origin-pod-portrait.webp" width="1400" height="2100" loading="lazy"
+                 alt="A cluster of cacao fruits growing directly from the trunk of a cacao tree">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== III. Features ========== -->
+    <section id="features" class="section features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal>III · Our Signature</p>
+          <h2 id="features-title" class="display" data-reveal>What makes CACERA <em>special</em></h2>
+          <p class="lead" data-reveal>Three quiet promises, kept in every bar we make. Nothing is rushed, nothing is hidden, and nothing is added that does not belong.</p>
+        </header>
+
+        <div class="features__layout">
+          <figure class="features__media" data-reveal>
+            <img src="assets/images/features-beans.webp" width="1800" height="2249" loading="lazy"
+                 alt="Cupped hands holding a heap of fermented cocoa beans">
+            <figcaption>
+              <span class="features__media-kicker">Batch Nº 047</span>
+              Hand-sorted, bean by bean.
+            </figcaption>
+          </figure>
+
+          <div class="features__pillars">
+            <article class="pillar" data-reveal>
+              <div class="pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M14 26V12a3 3 0 0 1 6 0v11M20 22V9a3 3 0 0 1 6 0v13M26 22V11a3 3 0 0 1 6 0v13M32 24v-7a3 3 0 0 1 6 0v12c0 8-5 14-13 14h-2c-5 0-8-2-11-6l-6-8a3 3 0 0 1 5-4l4 4"/></svg>
+              </div>
+              <div class="pillar__body">
+                <p class="pillar__num">I</p>
+                <h3 class="pillar__title">Handcrafted in Small Batches</h3>
+                <p>No more than two hundred bars leave our atelier in a single batch. Each one is stone-ground, tempered on marble and wrapped by hand, then numbered, so you always know exactly which batch you are tasting.</p>
+                <ul class="pillar__list">
+                  <li>Stone-ground for 72 hours</li>
+                  <li>Tempered by hand on marble</li>
+                  <li>Hand-numbered, hand-wrapped in gold foil</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="pillar" data-reveal>
+              <div class="pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M24 44V22M24 30c-8 0-14-6-14-16 10 0 14 6 14 16ZM24 26c0-9 5-15 14-15 0 9-5 15-14 15Z"/><circle cx="24" cy="24" r="21"/></svg>
+              </div>
+              <div class="pillar__body">
+                <p class="pillar__num">II</p>
+                <h3 class="pillar__title">Ethically Sourced Cocoa</h3>
+                <p>We trade directly with the families who grow our cacao. There are no brokers and no guesswork. Farmers are paid well above Fairtrade minimums, and every bar can be traced back to the farm where its beans were grown.</p>
+                <ul class="pillar__list">
+                  <li>Direct trade, long-term partnerships</li>
+                  <li>Premiums reinvested in farming communities</li>
+                  <li>100% traceable from farm to bar</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="pillar" data-reveal>
+              <div class="pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M8 36h32M10 36l-3-18 10 8 7-14 7 14 10-8-3 18"/><circle cx="7" cy="17" r="2"/><circle cx="24" cy="10" r="2"/><circle cx="41" cy="17" r="2"/></svg>
+              </div>
+              <div class="pillar__body">
+                <p class="pillar__num">III</p>
+                <h3 class="pillar__title">Pure Indulgence</h3>
+                <p>Five ingredients, and nothing to hide. Single-origin 72% cacao melts slowly into waves of red berries, toasted almond and warm vanilla. There is no palm oil, no artificial flavouring and no shortcut.</p>
+                <ul class="pillar__list">
+                  <li>72% single-origin cacao</li>
+                  <li>No palm oil, no artificial flavours</li>
+                  <li>A long, silken, unhurried finish</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <ul class="features__more" role="list">
+          <li class="feature-card" data-reveal>
+            <svg class="feature-card__icon" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="24" rx="11" ry="18"/><path d="M24 7c-3 6-3 28 0 34"/></svg>
+            <h3 class="feature-card__title">Bean-to-Bar Mastery</h3>
+            <p>We control every step, from sorting raw beans to the final temper, so no flavour is lost along the way.</p>
+          </li>
+          <li class="feature-card" data-reveal data-reveal-delay="0.12">
+            <svg class="feature-card__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 43c-8 0-13-5-13-12 0-9 9-12 9-22 6 4 8 9 8 13 2-2 3-4 3-6 4 4 6 9 6 14 0 8-5 13-13 13Z"/><path d="M24 43c-3 0-5-2-5-5 0-4 5-6 5-10 3 3 5 6 5 10 0 3-2 5-5 5Z"/></svg>
+            <h3 class="feature-card__title">Slow-Roasted Complexity</h3>
+            <p>Low temperatures and long roasting times coax out layered notes of fruit, spice and honeyed caramel.</p>
+          </li>
+          <li class="feature-card" data-reveal data-reveal-delay="0.24">
+            <svg class="feature-card__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 20h28l-3 20a3 3 0 0 1-3 2H16a3 3 0 0 1-3-2Z"/><path d="M16 20c0-5 4-9 8-9s8 4 8 9"/><path d="M20 28h8"/></svg>
+            <h3 class="feature-card__title">Gift-Worthy by Design</h3>
+            <p>Each bar arrives in gold foil and a hand-numbered sleeve, ready to be given or kept for yourself.</p>
+          </li>
+        </ul>
+
+        <dl class="stats" data-reveal>
+          <div class="stats__item"><dt>Bars per batch, at most</dt><dd><span data-count="200">200</span></dd></div>
+          <div class="stats__item"><dt>Hours of stone grinding</dt><dd><span data-count="72">72</span>h</dd></div>
+          <div class="stats__item"><dt>Pure ingredients</dt><dd><span data-count="5">5</span></dd></div>
+          <div class="stats__item"><dt>Traceable to the farm</dt><dd><span data-count="100">100</span>%</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ========== IV. Craft ========== -->
+    <section id="craft" class="section craft" aria-labelledby="craft-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal>IV · The Craft</p>
+          <h2 id="craft-title" class="display" data-reveal>From bean to bar, <em>by hand</em></h2>
+          <p class="lead" data-reveal>Five patient steps separate a cacao pod from a finished CACERA bar. We take our time over every one of them.</p>
+        </header>
+
+        <ol class="timeline" data-timeline>
+          <li class="step">
+            <figure class="step__media" data-reveal>
+              <img src="assets/images/craft-harvest.webp" width="1600" height="1067" loading="lazy"
+                   alt="Freshly harvested yellow and orange cacao pods piled on a dark wooden table">
+            </figure>
+            <div class="step__copy" data-reveal>
+              <p class="step__num">01</p>
+              <h3 class="step__title">Harvest</h3>
+              <p>Pods are cut by hand at peak ripeness, only when their colour turns from green to deep gold and crimson.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <figure class="step__media" data-reveal>
+              <img src="assets/images/craft-ferment.webp" width="1600" height="1067" loading="lazy"
+                   alt="Open hands holding freshly fermented cocoa beans">
+            </figure>
+            <div class="step__copy" data-reveal>
+              <p class="step__num">02</p>
+              <h3 class="step__title">Ferment &amp; Dry</h3>
+              <p>Six days in banana-leaf-lined boxes wake the flavour inside each bean. Then they dry slowly beneath the equatorial sun.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <figure class="step__media" data-reveal>
+              <img src="assets/images/craft-roast.webp" width="1600" height="1067" loading="lazy"
+                   alt="A dense bed of dark roasted beans">
+            </figure>
+            <div class="step__copy" data-reveal>
+              <p class="step__num">03</p>
+              <h3 class="step__title">Slow Roast</h3>
+              <p>Small, low-temperature roasts, profiled for each harvest, draw out caramel and toasted-nut depth without bitterness.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <figure class="step__media" data-reveal>
+              <img src="assets/images/craft-conche.webp" width="1600" height="2274" loading="lazy"
+                   alt="A glossy ribbon of melted chocolate pouring into a glass">
+            </figure>
+            <div class="step__copy" data-reveal>
+              <p class="step__num">04</p>
+              <h3 class="step__title">Stone-Ground Conche</h3>
+              <p>Seventy-two hours between granite stones refine the chocolate to an impossibly silken texture.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <figure class="step__media" data-reveal>
+              <img src="assets/images/craft-temper.webp" width="1600" height="2400" loading="lazy"
+                   alt="Glossy squares of tempered dark chocolate resting on a dark surface">
+            </figure>
+            <div class="step__copy" data-reveal>
+              <p class="step__num">05</p>
+              <h3 class="step__title">Temper &amp; Wrap</h3>
+              <p>Tempered on marble for a mirror shine and a clean snap, then wrapped in gold foil and numbered by hand.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== V. Collection ========== -->
+    <section id="collection" class="section collection" aria-labelledby="collection-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal>V · The Collection</p>
+          <h2 id="collection-title" class="display" data-reveal>The <em>CACERA</em> collection</h2>
+          <p class="lead" data-reveal>A small, considered range, each one a different expression of the same single-origin cacao.</p>
+        </header>
+
+        <ul class="collection__grid" role="list">
+          <li>
+            <article class="product" data-reveal>
+              <figure class="product__media">
+                <img src="assets/images/collection-noir.webp" width="1400" height="933" loading="lazy"
+                     alt="A dark chocolate bar broken into pieces on a black table">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta">72% · Single Origin</p>
+                <h3 class="product__name">Noir Royal</h3>
+                <p class="product__notes">Red berries, toasted almond, a whisper of vanilla.</p>
+                <p class="product__price"><data value="18">€18</data> <span>· 80g</span></p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="product" data-reveal data-reveal-delay="0.12">
+              <figure class="product__media">
+                <img src="assets/images/collection-lait.webp" width="1400" height="2100" loading="lazy"
+                     alt="Close-up of a milk chocolate bar with one square bitten">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta">48% · Milk</p>
+                <h3 class="product__name">Lait Doré</h3>
+                <p class="product__notes">Salted caramel, warm honey, a creamy, lingering melt.</p>
+                <p class="product__price"><data value="16">€16</data> <span>· 80g</span></p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="product" data-reveal data-reveal-delay="0.24">
+              <figure class="product__media">
+                <img src="assets/images/collection-truffes.webp" width="1400" height="2487" loading="lazy"
+                     alt="Rows of cocoa-dusted chocolate truffles in paper cups">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta">Coffret of 12</p>
+                <h3 class="product__name">Truffes Royales</h3>
+                <p class="product__notes">Ganache hearts rolled in cocoa, finished with gold.</p>
+                <p class="product__price"><data value="38">€38</data> <span>· 12 pieces</span></p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="product" data-reveal data-reveal-delay="0.36">
+              <figure class="product__media">
+                <img src="assets/images/collection-eclats.webp" width="1400" height="2100" loading="lazy"
+                     alt="Hand-rolled chocolate truffles on a dark plate">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta">85% · Intense</p>
+                <h3 class="product__name">Éclat Noir</h3>
+                <p class="product__notes">Espresso, dark cherry, a bold and elegant finish.</p>
+                <p class="product__price"><data value="24">€24</data> <span>· 9 pieces</span></p>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== VI. 3D Showcase ========== -->
+    <section id="showcase" class="showcase stage" aria-labelledby="showcase-title">
+      <header class="section-head showcase__head container">
+        <p class="eyebrow" data-reveal>VI · The Bar</p>
+        <h2 id="showcase-title" class="display" data-reveal>Noir Royal, <em>in every detail</em></h2>
+        <p class="lead" data-reveal>Our signature bar, in its gold foil. Scroll to explore what goes into every square.</p>
+      </header>
+
+      <div class="showcase__sticky">
+        <div class="showcase__glow" aria-hidden="true"></div>
+        <img class="showcase__photo" data-showcase-photo src="assets/images/cacera-bar-wrapped.webp" width="1024" height="1536" loading="lazy"
+             alt="The CACERA Noir Royal bar, half unwrapped from its crumpled gold foil">
+        <div class="showcase__veil" aria-hidden="true"></div>
+      </div>
+
+      <div class="showcase__content container">
+        <dl class="callouts">
+          <div class="callout callout--left" data-reveal>
+            <dt>Cacao</dt>
+            <dd><strong>72%</strong> single-origin Trinitario, harvested by hand.</dd>
+          </div>
+          <div class="callout callout--right" data-reveal>
+            <dt>Origin</dt>
+            <dd><strong>Sambirano Valley</strong> Volcanic river terroir, from fewer than twelve family farms.</dd>
+          </div>
+          <div class="callout callout--left" data-reveal>
+            <dt>Tasting Notes</dt>
+            <dd><strong>Red berries · Almond · Vanilla</strong> A bright opening that melts into a long, velvet finish.</dd>
+          </div>
+          <div class="callout callout--right" data-reveal>
+            <dt>Ingredients</dt>
+            <dd><strong>Only five</strong> Cacao beans, cocoa butter, cane sugar, Bourbon vanilla, fleur de sel.</dd>
+          </div>
+          <div class="callout callout--left" data-reveal>
+            <dt>The Bar</dt>
+            <dd><strong>80g · 10 squares</strong> Wrapped in gold foil and hand-numbered.</dd>
+          </div>
+          <div class="callout callout--right" data-reveal>
+            <dt>Pairing</dt>
+            <dd><strong>Aged rum · Espresso · Sauternes</strong> Or a quiet moment entirely your own.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ========== VII. Reserve ========== -->
+    <section id="reserve" class="section reserve" aria-labelledby="reserve-title">
+      <div class="container reserve__grid">
+        <div class="reserve__copy">
+          <p class="eyebrow" data-reveal>VII · Reserve</p>
+          <h2 id="reserve-title" class="display" data-reveal>Reserve your <em>coffret</em></h2>
+          <p class="lead" data-reveal>Each batch is small, and each batch sells out. Join the CACERA list to reserve bars from the next harvest before they are released.</p>
+
+          <form class="reserve__form" data-reserve-form novalidate data-reveal>
+            <div class="field">
+              <label for="reserve-name">Your name</label>
+              <input id="reserve-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="reserve-email">Email address</label>
+              <input id="reserve-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="reserve-box">Coffret</label>
+              <select id="reserve-box" name="box">
+                <option>Discovery · 3 bars</option>
+                <option selected>Signature · 6 bars</option>
+                <option>Grand Coffret · 12 bars</option>
+              </select>
+            </div>
+            <button class="button button--gold" type="submit">Reserve My Coffret</button>
+            <p class="reserve__status" data-reserve-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <figure class="reserve__media" data-reveal>
+          <img src="assets/images/cacera-bar-burst.webp" width="1024" height="1536" loading="lazy"
+               alt="A CACERA bar bursting apart into shards, cocoa dust and flakes of gold foil">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <p class="wordmark wordmark--large">CACERA</p>
+        <p class="site-footer__motto"><em>Unwrap the extraordinary.</em></p>
+      </div>
+
+      <address class="site-footer__address">
+        <p class="site-footer__label">Atelier</p>
+        <p>12 Rue du Cacao<br>75003 Paris, France</p>
+        <p><a href="mailto:bonjour@cacera.example">bonjour@cacera.example</a></p>
+      </address>
+
+      <nav class="site-footer__nav" aria-label="Footer">
+        <p class="site-footer__label">Explore</p>
+        <ul>
+          <li><a href="#origin">Origin</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#reserve">Reserve</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__nav" aria-label="Social">
+        <p class="site-footer__label">Follow</p>
+        <ul>
+          <li><a href="#" rel="noopener">Instagram</a></li>
+          <li><a href="#" rel="noopener">Pinterest</a></li>
+          <li><a href="#" rel="noopener">Journal</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container site-footer__base">
+      <p>© <span data-year>2026</span> CACERA Maison de Chocolat. All rights reserved.</p>
+      <p>Photography courtesy of Unsplash contributors.</p>
+    </div>
+  </footer>
+</body>
+</html>

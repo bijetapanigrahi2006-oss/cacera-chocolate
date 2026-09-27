@@ -1,0 +1,183 @@
+/* ==========================================================================
+   CACERA — Design Tokens
+   The ONLY file allowed to contain raw color values.
+   ========================================================================== */
+
+:root {
+  /* ---------- Primitive palette ---------- */
+  --gold-200: #f3e3b8;
+  --gold-300: #e8cf8f;
+  --gold-400: #d9b566;
+  --gold-500: #c29a4b;
+  --gold-600: #9c7632;
+  --gold-700: #775621;
+
+  --cocoa-1000: #0b0702;
+  --cocoa-950: #120b07;
+  --cocoa-900: #1a110b;
+  --cocoa-850: #22170f;
+  --cocoa-800: #2c1e14;
+  --cocoa-700: #3d2a1c;
+  --cocoa-600: #563b27;
+  --milk-500: #8a6448;
+  --milk-400: #a88464;
+  --milk-300: #c7a98b;
+
+  --ivory-50: #fbf7f0;
+  --ivory-100: #f8f2e8;
+  --cream-150: #f1e7d6;
+  --cream-200: #e9dcc5;
+  --cream-300: #dccbad;
+
+  --black-a60: rgb(0 0 0 / 0.6);
+  --black-a35: rgb(0 0 0 / 0.35);
+  --transparent: rgb(0 0 0 / 0);
+  --mask-opaque: rgb(0 0 0);
+
+  /* ---------- Cinematic stage (hero + 3D) — always dark ---------- */
+  --stage-bg: var(--cocoa-1000);
+  --stage-bg-raised: var(--cocoa-950);
+  --stage-text: var(--ivory-100);
+  --stage-text-muted: var(--milk-300);
+  --stage-accent: var(--gold-400);
+  --stage-border: rgb(217 181 102 / 0.22);
+  --stage-border-strong: rgb(217 181 102 / 0.45);
+  --stage-gold-gradient: linear-gradient(120deg, var(--gold-600) 0%, var(--gold-300) 38%, var(--gold-200) 50%, var(--gold-400) 64%, var(--gold-600) 100%);
+  --stage-glass: rgb(18 11 7 / 0.55);
+  --stage-vignette: radial-gradient(ellipse at center, var(--transparent) 30%, rgb(11 7 2 / 0.85) 72%, var(--cocoa-1000) 100%);
+  --stage-fade-bottom: linear-gradient(to bottom, var(--transparent), var(--cocoa-1000));
+  --stage-fade-side: linear-gradient(to right, rgb(11 7 2 / 0.9), var(--transparent) 45%, var(--transparent) 55%, rgb(11 7 2 / 0.9));
+  --stage-glow: radial-gradient(ellipse 45% 50% at 50% 50%, rgb(217 181 102 / 0.16), var(--transparent) 70%);
+
+
+  /* ---------- Semantic tokens: DARK (default) ---------- */
+  --color-bg: var(--cocoa-950);
+  --color-bg-alt: var(--cocoa-900);
+  --color-surface: var(--cocoa-850);
+  --color-surface-raised: var(--cocoa-800);
+  --color-text: var(--ivory-100);
+  --color-text-muted: var(--milk-300);
+  --color-text-subtle: var(--milk-400);
+  --color-accent: var(--gold-400);
+  --color-accent-strong: var(--gold-300);
+  --color-accent-contrast: var(--cocoa-1000);
+  --color-border: rgb(217 181 102 / 0.18);
+  --color-border-strong: rgb(217 181 102 / 0.45);
+  --color-glow: rgb(217 181 102 / 0.16);
+  --color-overlay: rgb(11 7 2 / 0.55);
+  --color-header-bg: rgb(18 11 7 / 0.72);
+  --color-shadow: rgb(0 0 0 / 0.45);
+  --color-focus: var(--gold-300);
+  /* Resolved at :root, so they keep the page theme even inside dark .stage scopes */
+  --color-page: var(--color-bg);
+  --color-page-alt: var(--color-bg-alt);
+
+  --gold-gradient: linear-gradient(120deg, var(--gold-600) 0%, var(--gold-300) 38%, var(--gold-200) 50%, var(--gold-400) 64%, var(--gold-600) 100%);
+  --image-scrim: linear-gradient(to top, rgb(11 7 2 / 0.88), rgb(11 7 2 / 0.2) 55%, var(--transparent));
+  --section-sheen: radial-gradient(ellipse at 50% 0%, rgb(217 181 102 / 0.07), var(--transparent) 60%);
+
+  /* ---------- Spacing: 8px grid ---------- */
+  --space-half: 4px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-14: 112px;
+  --space-16: 128px;
+  --space-20: 160px;
+  /* Section rhythm & gutters step up by breakpoint so they stay on the 8px grid */
+  --space-section: var(--space-12);
+  --gutter: var(--space-3);
+  --container: 1280px;
+  --container-narrow: 800px;
+
+  /* ---------- Radius & lines ---------- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --hairline: 1px;
+
+  /* ---------- Typography ---------- */
+  --font-royal: "Cinzel", "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-2xs: 0.625rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: clamp(1.0625rem, 0.4vw + 1rem, 1.1875rem);
+  --fs-lg: clamp(1.25rem, 0.8vw + 1rem, 1.5rem);
+  --fs-xl: clamp(1.5rem, 1.4vw + 1.1rem, 2.125rem);
+  --fs-2xl: clamp(2rem, 2.6vw + 1.2rem, 3.5rem);
+  --fs-3xl: clamp(2.5rem, 4.4vw + 1rem, 5.25rem);
+  --fs-hero: clamp(3.25rem, 9vw, 9.5rem);
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-body: 1.7;
+  --tracking-royal: 0.32em;
+  --tracking-wide: 0.18em;
+
+  /* ---------- Motion (slow + calm) ---------- */
+  --ease-silk: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-velvet: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 400ms;
+  --dur-base: 800ms;
+  --dur-slow: 1200ms;
+  --dur-slower: 1600ms;
+
+  --z-stage: 0;
+  --z-content: 2;
+  --z-header: 50;
+  --z-loader: 100;
+
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-section: var(--space-16);
+    --gutter: var(--space-5);
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --space-section: var(--space-20);
+    --gutter: var(--space-10);
+  }
+}
+
+/* ---------- Semantic tokens: LIGHT ---------- */
+:root[data-theme="light"] {
+  --color-bg: var(--ivory-100);
+  --color-bg-alt: var(--cream-150);
+  --color-surface: var(--ivory-50);
+  --color-surface-raised: var(--cream-200);
+  --color-text: var(--cocoa-900);
+  --color-text-muted: var(--cocoa-600);
+  --color-text-subtle: var(--milk-500);
+  --color-accent: var(--gold-600);
+  --color-accent-strong: var(--gold-700);
+  --color-accent-contrast: var(--ivory-50);
+  --color-border: rgb(119 86 33 / 0.2);
+  --color-border-strong: rgb(119 86 33 / 0.45);
+  --color-glow: rgb(194 154 75 / 0.22);
+  --color-overlay: rgb(248 242 232 / 0.6);
+  --color-header-bg: rgb(248 242 232 / 0.78);
+  --color-shadow: rgb(61 42 28 / 0.18);
+  --color-focus: var(--gold-700);
+
+  --gold-gradient: linear-gradient(120deg, var(--gold-700) 0%, var(--gold-500) 40%, var(--gold-400) 50%, var(--gold-600) 64%, var(--gold-700) 100%);
+  --section-sheen: radial-gradient(ellipse at 50% 0%, rgb(194 154 75 / 0.1), var(--transparent) 60%);
+
+  color-scheme: light;
+}
