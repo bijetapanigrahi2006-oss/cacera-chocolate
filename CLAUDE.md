@@ -48,6 +48,13 @@ assets/images/          – optimized WebP photography + CREDITS.md
    In JS, use the shared `prefersReducedMotion` media query from `main.js`.
 4. **CSS variables for all colors.** Colors are defined only in `css/tokens.css`: primitives first, then semantic tokens (`--color-bg`, `--color-text`, `--color-accent`, ...). Component CSS and JS must reference semantic tokens and never hard-code hex/rgb/hsl values, so themes switch by changing tokens alone. JS reads colors with `getComputedStyle` when it needs them (e.g. the hero canvas).
 
+## Concept-Project Labelling (required)
+CACERA is a **fictional brand**, and the public site must always say so clearly:
+- a "Concept Project" badge (`.concept-badge`) at the far right of the hero's opening screen, and the same badge at the right of the footer base;
+- the meta description and `og:` tags mention that it is a concept / design showcase.
+
+The reserve form sends nothing. After a valid submit it shows the thank-you panel (`[data-reserve-thanks]`), which must keep stating that no reservation was made and no details were sent or stored. Never add wording or features that imply real orders, payments or data collection.
+
 ## Brand Guidelines
 - **Palette:**
   - gold (`--gold-*`): accents, hairlines, highlights, CTAs

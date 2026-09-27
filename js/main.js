@@ -90,22 +90,17 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 const sections = [...document.querySelectorAll('main > section')];
 const stageSections = sections.filter((s) => s.classList.contains('stage'));
 
+let currentId = '';
+
 function markCurrent(id) {
+  if (id === currentId) return;
+  currentId = id;
   document.querySelectorAll('[data-pager], .site-nav__links a').forEach((a) => {
     const match = a.getAttribute('href') === `#${id}`;
     if (match) a.setAttribute('aria-current', 'true');
     else a.removeAttribute('aria-current');
   });
 }
-
-sections.forEach((section) => {
-  ScrollTrigger.create({
-    trigger: section,
-    start: 'top 50%',
-    end: 'bottom 50%',
-    onToggle: (self) => self.isActive && markCurrent(section.id),
-  });
-});
 
 function updateChrome() {
   const headerLine = header.offsetHeight / 2;
@@ -117,6 +112,11 @@ function updateChrome() {
   header.classList.toggle('on-stage', over(headerLine));
   header.classList.toggle('is-scrolled', window.scrollY > window.innerHeight * 0.5);
   pager.classList.toggle('on-stage', over(pagerLine));
+
+  // Current section = the last one whose top has passed mid-screen
+  // (checked every update, so instant jumps like the End key are handled too)
+  const current = sections.filter((s) => s.getBoundingClientRect().top <= pagerLine).pop() || sections[0];
+  markCurrent(current.id);
 }
 
 ScrollTrigger.create({
@@ -177,6 +177,7 @@ function playIntro() {
     .from(chars, { opacity: 0, y: 32, filter: 'blur(8px)', duration: 1.8, stagger: 0.14 }, 0.4)
     .from('.hero__tagline', { opacity: 0, y: 16, duration: 1.6 }, 1.4)
     .from('.hero__cue', { opacity: 0, duration: 1.6 }, 1.8)
+    .from('.hero__concept', { opacity: 0, y: 16, duration: 1.6 }, 2)
     .from('.site-header', { opacity: 0, y: -16, duration: 1.4 }, 1.2);
 }
 
@@ -273,6 +274,10 @@ if (!reduced) {
 /* ---------- Reserve form ---------- */
 const form = document.querySelector('[data-reserve-form]');
 const status = document.querySelector('[data-reserve-status]');
+const thanks = document.querySelector('[data-reserve-thanks]');
+const thanksName = document.querySelector('[data-thanks-name]');
+const thanksBox = document.querySelector('[data-thanks-box]');
+const againButton = document.querySelector('[data-reserve-again]');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -292,8 +297,23 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  status.textContent = `Merci, ${name.value.trim().split(' ')[0]}. Your ${form.elements.box.value.split(' ·')[0]} coffret is reserved. We will write when the next batch is ready.`;
+  // Concept site: nothing is sent anywhere, so the thank-you says so plainly
+  thanksName.textContent = `, ${name.value.trim().split(/\s+/)[0]}`;
+  thanksBox.textContent = form.elements.box.value;
+  status.textContent = '';
   form.reset();
+  form.hidden = true;
+  thanks.hidden = false;
+  thanks.focus({ preventScroll: true });
+  ScrollTrigger.refresh();
+});
+
+againButton.addEventListener('click', () => {
+  thanks.hidden = true;
+  form.hidden = false;
+  [form.elements.name, form.elements.email].forEach((field) => field.removeAttribute('aria-invalid'));
+  form.elements.name.focus();
+  ScrollTrigger.refresh();
 });
 
 /* ---------- Misc ---------- */

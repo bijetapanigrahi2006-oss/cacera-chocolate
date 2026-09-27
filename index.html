@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CACERA — Handcrafted Fine Chocolate</title>
-  <meta name="description" content="CACERA crafts single-origin fine chocolate by hand in small batches, from ethically sourced cacao. Unwrap the extraordinary.">
+  <meta name="description" content="A concept website for CACERA, a fictional luxury chocolate brand: single-origin fine chocolate, handcrafted in small batches. Design showcase only, not a real shop.">
   <meta name="theme-color" content="#120b07">
-  <meta property="og:title" content="CACERA — Handcrafted Fine Chocolate">
-  <meta property="og:description" content="Single-origin chocolate, handcrafted in small batches from ethically sourced cacao.">
+  <meta property="og:title" content="CACERA — Handcrafted Fine Chocolate (Concept Project)">
+  <meta property="og:description" content="A concept website for a fictional luxury chocolate brand. Design showcase only, not a real shop.">
   <meta property="og:image" content="assets/images/cacera-bar-wrapped.webp">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23120b07'/%3E%3Ctext x='32' y='44' font-family='serif' font-size='36' text-anchor='middle' fill='%23d9b566'%3EC%3C/text%3E%3C/svg%3E">
 
@@ -123,6 +123,11 @@
           <span class="hero__cue-label">Scroll</span>
           <span class="hero__cue-line"></span>
         </div>
+
+        <aside class="concept-badge hero__concept" aria-label="Concept project notice">
+          <p class="concept-badge__label">Concept Project</p>
+          <p class="concept-badge__text">CACERA is a fictional brand. This site is a design showcase, not a real shop.</p>
+        </aside>
       </div>
     </section>
 
@@ -470,6 +475,14 @@
             <button class="button button--gold" type="submit">Reserve My Coffret</button>
             <p class="reserve__status" data-reserve-status role="status" aria-live="polite"></p>
           </form>
+
+          <section class="reserve__thanks" data-reserve-thanks aria-labelledby="thanks-title" tabindex="-1" hidden>
+            <p class="eyebrow">Merci</p>
+            <h3 id="thanks-title" class="reserve__thanks-title">Thank you<span data-thanks-name></span>.</h3>
+            <p class="reserve__thanks-text">Your request for <strong data-thanks-box>Signature · 6 bars</strong> has been noted.</p>
+            <p class="reserve__thanks-note">CACERA is a concept project for a fictional brand. No reservation was made, and your details were not sent or stored.</p>
+            <button class="button button--ghost" type="button" data-reserve-again>Make another request</button>
+          </section>
         </div>
 
         <figure class="reserve__media" data-reveal>
@@ -514,8 +527,14 @@
       </nav>
     </div>
     <div class="container site-footer__base">
-      <p>© <span data-year>2026</span> CACERA Maison de Chocolat. All rights reserved.</p>
-      <p>Photography courtesy of Unsplash contributors.</p>
+      <div class="site-footer__legal">
+        <p>© <span data-year>2026</span> CACERA Maison de Chocolat, a fictional brand.</p>
+        <p>Photography courtesy of Unsplash contributors.</p>
+      </div>
+      <aside class="concept-badge site-footer__concept" aria-label="Concept project details">
+        <p class="concept-badge__label">Concept Project</p>
+        <p class="concept-badge__text">CACERA is a fictional brand created as a design showcase. The products, prices, address and reservations on this site are not real, and nothing is for sale.</p>
+      </aside>
     </div>
   </footer>
 </body>
